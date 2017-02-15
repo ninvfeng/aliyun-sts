@@ -1,14 +1,13 @@
 {
-    "name": "hpyer/aliyun-sts",
+    "name": "dying318/aliyun-sts",
     "description": "Aliyun-STS SDK",
     "keywords": ["aliyun", "sts", "oss"],
-    "homepage": "http://github.com/hpyer/aliyun-sts",
+    "homepage": "http://github.com/dying318/aliyun-sts",
     "license": "MIT",
     "authors": [
         {
-            "name": "Hpyer",
-            "email": "me@hpyer.cn",
-            "homepage": "http://hpyer.cn"
+            "name": "Yukun",
+            "email": "dying318@gmail.com"
         }
     ],
     "require": {
@@ -16,8 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hpyer\\Aliyun\\Sts\\": "src",
-            "Sts\\": "src/sdk"
+            "Sts\\": "src"
         }
     },
     "extra": {
