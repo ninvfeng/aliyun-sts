@@ -15,25 +15,28 @@ class OssToken{
 
     public function getStsAcount(){
 
-        $bucket          = $this['config']['bucket'];
-        $region          = $this['config']['region'];
-        $endPoint     = $this['config']['endPoint'];
-        $AccessKeyId     = $this['config']['AccessKeyId'];
-        $AccessKeySecret = $this['config']['AccessKeySecret'];
-        $roleArn         = $this['config']['roleArn'];
+        $bucket          = $this->config['bucket'];
+        $region          = $this->config['region'];
+        $endPointSys     = $this->config['endPoint'];
+        $AccessKeyId     = $this->config['AccessKeyId'];
+        $AccessKeySecret = $this->config['AccessKeySecret'];
+        $roleArn         = $this->config['roleArn'];
 
-        DefaultProfile::addEndpoint($region, $region, "Sts", $endPoint);
-        $iClientProfile = DefaultProfile::getProfile($region, $AccessKeyId, $AccessKeySecret);
+        define("REGION_ID", "cn-shanghai");
+        define("ENDPOINT", "sts.cn-shanghai.aliyuncs.com");
+        
+        DefaultProfile::addEndpoint(REGION_ID, REGION_ID, "Sts", ENDPOINT);
+        $iClientProfile = DefaultProfile::getProfile(REGION_ID, $AccessKeyId, $AccessKeySecret);
         $client = new DefaultAcsClient($iClientProfile);
+
 
         $request = new AssumeRoleRequest();
         
-        $request->setRoleSessionName("hk-oss-user");
+        $request->setRoleSessionName($this->config['roleName']);
         $request->setRoleArn($roleArn);
         
         $request->setDurationSeconds(3600);
         $response = $client->getAcsResponse($request);
-
         $AccessKeySecret = $response->Credentials->AccessKeySecret;
         $AccessKeyId = $response->Credentials->AccessKeyId;
         $SecurityToken = $response->Credentials->SecurityToken;
@@ -44,7 +47,7 @@ class OssToken{
             'SecurityToken'=>$SecurityToken,
             'bucket'=>$bucket,
             'region'=>$region,
-            'endpoint'=>$endPoint,
+            'endpoint'=>$endPointSys,
         ];
 
         return $data;
