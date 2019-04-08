@@ -1,13 +1,13 @@
 {
-    "name": "aliyunsts/aliyun-sts",
+    "name": "ninvfeng/aliyun-sts",
     "description": "Aliyun-STS SDK",
     "keywords": ["aliyun", "sts", "oss"],
-    "homepage": "http://github.com/dying318/aliyun-sts",
+    "homepage": "http://github.com/ninvfeng/aliyun-sts",
     "license": "MIT",
     "authors": [
         {
-            "name": "Yukun",
-            "email": "dying318@gmail.com"
+            "name": "ninvfeng",
+            "email": "ninvfeng@qq.com"
         }
     ],
     "require": {

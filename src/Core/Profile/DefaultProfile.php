@@ -22,8 +22,8 @@ namespace Sts\Core\Profile;
 use Sts\Core\Auth\Credential;
 use Sts\Core\Auth\ISigner;
 use Sts\Core\Auth\ShaHmac1Signer;
-use Sts\Core\Profile\Endpoint;
-use Sts\Core\Profile\EndpointProvider;
+use Sts\Core\Regions\Endpoint;
+use Sts\Core\Regions\EndpointProvider;
 use Sts\Core\Regions\ProductDomain;
 
 class DefaultProfile implements IClientProfile
